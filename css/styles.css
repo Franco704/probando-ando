@@ -872,3 +872,7 @@ svg.tree { width: 100%; max-width: 480px; display: block; }
 .st-table.z, .st-table.t { max-height: 70vh; overflow: auto; }
 .tables-nav { margin: 0 0 8px; }
 .tables-page section { scroll-margin-top: calc(var(--top) + 12px); }
+
+/* Otras guías agrupadas por año de la carrera */
+.also-y { font-size: .95rem; font-weight: 700; margin: 18px 0 8px; opacity: .75; }
+.also-h + .also-y { margin-top: 4px; }
