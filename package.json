@@ -1,0 +1,6 @@
+{
+  "name": "probando-ando",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node tests/estadistica.test.js && node tests/contenido.test.js" }
+}

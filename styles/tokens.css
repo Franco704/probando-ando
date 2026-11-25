@@ -1,0 +1,77 @@
+/* Probando Ando: papel rosado y tinta ciruela de día, ciruela profunda de noche. El color solo codifica información:
+   verde pino el primer parcial (descriptiva, probabilidad y discretas), índigo el segundo (continuas e inferencia), naranja quemado el final;
+   en los gráficos, la distribución en azul y lo que se acumula o se busca en ámbar.
+   Onest para títulos e interfaz, Newsreader para leer y Spline Sans Mono para tablas y valores. */
+:root {
+  --fondo: #f7f2f3;
+  --superficie: #fffcfc;
+  --superficie-2: #efe6e8;
+  --tinta: #26161f;
+  --tinta-2: #4a3640;
+  --tenue: #6f5c66;
+  --linea: #e2d5d9;
+  --ok: #187449; --ok-suave: #ddefe4;
+  --aviso: #8c5300; --aviso-suave: #f6e7cf;
+  --error: #b3233a; --error-suave: #f9dfe4;
+  --codigo-fondo: #f1e8ea; --codigo-tinta: #26161f;
+  --tok-c: #7a6b73; --tok-s: #0f7a52; --tok-k: #5b2ed6; --tok-t: #0b6aa8; --tok-n: #a4400c; --tok-a: #8a5a00;
+  --sobre-acento: #fff;
+
+  /* Parciales */
+  --p1: #1c6a4d; --p1-suave: #dbeee5;
+  --p2: #4537c4; --p2-suave: #e5e2fa;
+  --pf: #b04912; --pf-suave: #f8e4d6;
+  --acento: var(--p1); --acento-suave: var(--p1-suave); --acento-tinta: var(--p1);
+
+  /* Papeles en los gráficos: distribución (c-d, c-f), lo acumulado o buscado (c-eq), resultado, auxiliares */
+  --c-d: #2b5bd0; --c-s: #d23a4a; --c-eq: #cc6f00; --c-cmg: #7a43d4; --c-ctme: #0b8590; --c-cvme: #2f8f45; --c-cfme: #8a8090; --c-x: #c42b73;
+
+  --f-titulo: 'Onest', system-ui, sans-serif;
+  --f-ui: var(--f-titulo);
+  --f-texto: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --f-mono: 'Spline Sans Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Escala 1.25 sobre 18 px */
+  --t--2: .72rem; --t--1: .85rem; --t-0: 1.125rem; --t-1: 1.33rem; --t-2: 1.66rem; --t-3: 2.07rem; --t-4: clamp(2.1rem, 1.6rem + 2.6vw, 3rem); --t-5: clamp(2.5rem, 1.5rem + 4.8vw, 4.4rem);
+  --e-1: .25rem; --e-2: .5rem; --e-3: .75rem; --e-4: 1rem; --e-5: 1.5rem; --e-6: 2rem; --e-7: 3rem; --e-8: 4.5rem;
+  --r-1: 6px; --r-2: 12px; --r-3: 22px;
+  --sombra: 0 1px 0 rgba(38, 22, 31, .04), 0 14px 30px -20px rgba(38, 22, 31, .4);
+  --barra: 56px;
+  --dock: 64px;
+  --lateral: 300px;
+  --medida: 66ch;
+  --margen: 16px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --fondo: #171115; --superficie: #20181d; --superficie-2: #2c2228; --tinta: #f1e9ec; --tinta-2: #d3c6cc; --tenue: #a8959e; --linea: #3a2e35;
+    --ok: #55c98f; --ok-suave: #15291f; --aviso: #f0b552; --aviso-suave: #2e2513; --error: #ff7f8f; --error-suave: #36161e;
+    --codigo-fondo: #100b0e; --codigo-tinta: #ece2e6; --sobre-acento: #171115;
+    --tok-c: #a397a0; --tok-s: #6fd3a0; --tok-k: #b69bff; --tok-t: #7cc3f0; --tok-n: #f5a46b; --tok-a: #e6c066;
+    --p1: #5fd3a3; --p1-suave: #11302a; --p2: #a99eff; --p2-suave: #241f45; --pf: #f6a46a; --pf-suave: #3a2213;
+    --c-d: #7fa6ff; --c-s: #ff7a86; --c-eq: #ffb347; --c-cmg: #b89bff; --c-ctme: #45d0d8; --c-cvme: #6fd88a; --c-cfme: #ada1aa; --c-x: #ff7fb8;
+    --sombra: 0 1px 0 rgba(0, 0, 0, .3), 0 14px 30px -18px rgba(0, 0, 0, .8);
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --fondo: #171115; --superficie: #20181d; --superficie-2: #2c2228; --tinta: #f1e9ec; --tinta-2: #d3c6cc; --tenue: #a8959e; --linea: #3a2e35;
+  --ok: #55c98f; --ok-suave: #15291f; --aviso: #f0b552; --aviso-suave: #2e2513; --error: #ff7f8f; --error-suave: #36161e;
+  --codigo-fondo: #100b0e; --codigo-tinta: #ece2e6; --sobre-acento: #171115;
+  --tok-c: #a397a0; --tok-s: #6fd3a0; --tok-k: #b69bff; --tok-t: #7cc3f0; --tok-n: #f5a46b; --tok-a: #e6c066;
+  --p1: #5fd3a3; --p1-suave: #11302a; --p2: #a99eff; --p2-suave: #241f45; --pf: #f6a46a; --pf-suave: #3a2213;
+  --c-d: #7fa6ff; --c-s: #ff7a86; --c-eq: #ffb347; --c-cmg: #b89bff; --c-ctme: #45d0d8; --c-cvme: #6fd88a; --c-cfme: #ada1aa; --c-x: #ff7fb8;
+  --sombra: 0 1px 0 rgba(0, 0, 0, .3), 0 14px 30px -18px rgba(0, 0, 0, .8);
+  color-scheme: dark;
+}
+
+/* El acento sigue al parcial: el de la página (body) o el de cada bloque (data-u) */
+body[data-unit='p2'], [data-u='p2'] { --acento: var(--p2); --acento-suave: var(--p2-suave); --acento-tinta: var(--p2); }
+body[data-unit='final'], [data-u='final'] { --acento: var(--pf); --acento-suave: var(--pf-suave); --acento-tinta: var(--pf); }
+[data-u='p1'] { --acento: var(--p1); --acento-suave: var(--p1-suave); --acento-tinta: var(--p1); }
+[data-u] { --u: var(--acento); --u-suave: var(--acento-suave); }
+
+@media (min-width: 768px) { :root { --margen: 32px; } }
+@media (min-width: 1024px) { :root { --margen: 48px; } }

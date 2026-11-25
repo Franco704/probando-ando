@@ -2,9 +2,9 @@
 
 Guía de estudio de **Probabilidad y Estadística 2026 (UTN-FRT, Ingeniería en Sistemas de Información, comisiones 3K1 a 3K4)**, armada con los apuntes de la cátedra, las clases de la Prof. Teri y los trabajos prácticos 1 a 6. Separada por instancia de examen, cada una con su color:
 
-- **Primer parcial** (azul): estadística descriptiva y medidas (TP 1), probabilidad, condicional y Bayes (TP 2), variables aleatorias discretas, Binomial y Poisson (TP 3).
-- **Segundo parcial** (violeta): variables aleatorias continuas, Normal y exponencial (TP 4), muestreo, Teorema del Límite Central e intervalos de confianza (TP 5), test de hipótesis (TP 6).
-- **Final** (ámbar): toda la materia.
+- **Primer parcial** (verde pino): estadística descriptiva y medidas (TP 1), probabilidad, condicional y Bayes (TP 2), variables aleatorias discretas, Binomial y Poisson (TP 3).
+- **Segundo parcial** (índigo): variables aleatorias continuas, Normal y exponencial (TP 4), muestreo, Teorema del Límite Central e intervalos de confianza (TP 5), test de hipótesis (TP 6).
+- **Final** (naranja quemado): toda la materia.
 
 Contenido:
 
@@ -17,9 +17,32 @@ Contenido:
 
 Sitio en GitHub Pages: [franco704.github.io/probando-ando](https://franco704.github.io/probando-ando/)
 
-No necesita instalación: es HTML, CSS y JavaScript. Abrí `index.html`. El progreso se guarda en el navegador.
+No necesita instalación ni compilación: es HTML, CSS y JavaScript con módulos ES. Como los navegadores no cargan módulos desde `file://`, para verla en tu compu levantá un servidor estático en la carpeta (por ejemplo `python3 -m http.server`) y abrí `http://localhost:8000`. El progreso se guarda en el navegador (claves `pa-*`, las mismas de siempre).
 
-Pruebas: `node tests/st.test.js` (cálculos contra los ejemplos de clase y de los apuntes) y `node tests/content.test.js` (estructura del contenido; también verifica que cada pregunta abierta acepte su propia respuesta).
+Pruebas: `npm test` corre `node tests/estadistica.test.js` (cálculos contra los ejemplos de clase y de los apuntes) y `node tests/contenido.test.js` (estructura del contenido; también verifica que cada pregunta abierta acepte su propia respuesta).
+
+## Cómo está organizado
+
+La estructura cuenta de qué trata la materia (arquitectura *screaming*):
+
+```
+index.html              armazón: barra, índice, dock inferior en móvil
+src/main.js             raíz de composición: rutas por hash (#/<lección>, #/quiz/<tema>, #/simulacro/<parcial>, #/abiertas, #/tablas, …) y vistas
+src/temario/            lecciones por parcial (primer-parcial/ y segundo-parcial/, un archivo por tema), catálogo, ayudantes de redacción e índice
+src/estadistica/        los cálculos de la materia, puros y probados: descriptiva, conteo, distribuciones, intervalos, tests y corrección de abiertas
+src/laboratorios/       laboratorios de estadística (y los gráficos estáticos de las lecciones), genéricos e índice que los monta
+src/estudio/            progreso, opción múltiple, abiertas, fórmulas y otras guías
+src/vistas/             inicio, lección, cuestionarios (tema, simulacro, repaso, abiertas) y recursos (fórmulas, gráficas, tablas)
+src/animaciones/        pantalla de entrada a cada tema y glifo de cada lección
+src/ui/ src/nucleo/     armazón e íconos; DOM, almacenamiento, formato y rutas
+styles/                 tokens, base, armazón, contenido, estudio, laboratorios, vistas y animaciones
+```
+
+El diseño es *mobile-first*: en el celular todo se alcanza desde el dock inferior (Inicio, Índice, Tablas, Simulacro, Repasar) y el cajón, con el buscador, todas las herramientas y el índice completo; desde 1024 px el índice queda fijo y las herramientas pasan a la barra superior, y desde 1280 px aparece el riel con las secciones de la lección. La portada abre con la Binomial que se vuelve campana: B(n; 0,3) con la Normal encima y P(X ≤ k) exacta contra la aproximación, calculadas con `src/estadistica/`. Tipografía: Onest para títulos e interfaz, Newsreader para leer y Spline Sans Mono para tablas y valores.
+
+## Cargar un tema o una lección
+
+Una lección nueva va en `src/temario/<parcial>/<tema>.js` (`LESSONS.push({ id, module, … })` y `export default LESSONS`), importada en orden en `src/temario/lecciones.js`; un tema nuevo, en `src/temario/catalogo.js`. Los ids de las lecciones y el orden de sus preguntas son los que guardan el progreso: agregar al final, nunca reordenar.
 
 ## Notas sobre el material
 
