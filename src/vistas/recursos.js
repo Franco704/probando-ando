@@ -87,3 +87,18 @@ export function vistaTablas(main) {
   activarSaltos(main);
   drawBin(); drawPoi();
 }
+
+// Apuntes en PDF que compartieron otros estudiantes (se sirven tal cual desde apuntes/)
+const APUNTES = [
+  ['apuntes/juana-vicente-apuntes.pdf', 'Apuntes de clase', '18 páginas. Desde la primera clase (condiciones, TP integrador) y la estadística descriptiva.', '680 KB'],
+];
+
+export function vistaApuntes(main) {
+  document.title = 'Apuntes, Probando Ando';
+  main.innerHTML = `
+    <article class="lesson apuntes">
+      <h1>Apuntes de Juana Vicente</h1>
+      <p class="tldr">Los apuntes de clase que armó <b>Juana Vicente</b> cursando Probabilidad y Estadística en 2026, y que compartió para esta guía. Ante cualquier diferencia, valen la cátedra y las lecciones de la guía. ¡Gracias, Juana!</p>
+      <ul class="guias">${APUNTES.map(([h, t, d, peso]) => `<li><a href="${h}" target="_blank" rel="noopener"><b>${t}</b><span>${d}</span></a><a class="guia-repo" href="${h}" download>Descargar PDF (${peso})</a></li>`).join('')}</ul>
+    </article>`;
+}

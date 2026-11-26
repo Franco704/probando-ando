@@ -70,4 +70,6 @@ Una lección nueva va en `src/temario/<parcial>/<tema>.js` (`LESSONS.push({ id, 
 
 ## Agradecimientos
 
+A **Juana Vicente**, que compartió sus apuntes de clase de la cursada 2026 (página *Apuntes*, `#/apuntes`; los PDF están en `apuntes/`).
+
 A **Mateo Rusconi**, autor original de las animaciones que esta guía hereda de Backeando Ando: la pantalla de entrada a cada tema, los glifos animados de las lecciones y los microefectos de los cuestionarios vienen de su "Laboratorio Frontend DSW".

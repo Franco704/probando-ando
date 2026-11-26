@@ -105,6 +105,7 @@ export function vistaInicio(main) {
             ['#/abiertas', 'abiertas', 'Preguntas abiertas', 'Cálculos con tolerancia de redondeo y teóricas por conceptos.'],
             ['#/graficas', 'graficas', 'Taller de gráficas', 'Histogramas, Venn, Bayes, densidades, el Límite Central y los tests.'],
             ['#/formulas', 'formulas', 'Fórmulas', 'Todo lo que hay que saber calcular, tema por tema.'],
+            ['#/apuntes', 'apuntes', 'Apuntes de Juana Vicente', 'Apuntes de clase en PDF de la cursada 2026.'],
             ['#/repaso', 'repasar', 'Repasar', 'Las preguntas que fallaste, hasta que las aciertes.'],
           ].map(([h, i, t, d]) => `<li><a href="${h}">${icono(i, 22)}<span><b>${t}</b>${d}</span></a></li>`).join('')}
         </ul>
